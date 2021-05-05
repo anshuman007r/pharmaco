@@ -4,12 +4,14 @@ import { Home } from './Home'
 import ContactUs from './ContactUs'
 import AboutUs from './AboutUs'
 import Product from './Product'
+import Header from './Header'
 
 export default class Navigation extends Component {
     render() {
         return (
             <div>
                 <Router>
+                    <Header/>
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route path='/AboutUs' component={AboutUs} />
