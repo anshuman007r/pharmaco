@@ -1,12 +1,14 @@
 import { useSelector, useDispatch} from 'react-redux'
 import { updateCount } from '../storage/action'
 import { useEffect } from 'react'
+import Header from './Header'
 
-export function Home(){
+function Home(props){
     const dispatch = useDispatch()
     let count = useSelector(state => state.countReducer.count)
 
     useEffect(() => {
+        console.log(props)
         if(!count){
             dispatch(updateCount(0)) 
         }
@@ -24,8 +26,11 @@ export function Home(){
 
     return(
         <div>
-            <h4>Hello</h4>
+            <Header props={props}/>
             <button onClick={()=>clickFunction('add')}>+</button>{count}<button onClick={()=>clickFunction('sub')}>-</button>
+            <button onClick={()=>props.history.push("/Login",{backgroundColor : '#010101'})}>Login</button>
         </div>
     )
 }
+
+export default Home

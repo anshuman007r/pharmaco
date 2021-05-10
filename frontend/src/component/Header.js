@@ -1,21 +1,24 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
 export default class Header extends Component {
+  navigate = (nav) =>{
+    this.props.props.history.push(nav)
+  }
   render() {
+    console.log(this.props)
     return (
       <div > 
         <ul className="header">
           <li>
-            <Link className="linkTag" to="/">Home</Link>
+              <button onClick={()=>this.navigate('/')}> Home</button>
           </li>
           <li>
-            <Link className="linkTag" to="/AboutUs">About</Link>
+              <button onClick={()=>this.navigate('/AboutUs')}> About Us</button>
           </li>
           <li>
-            <Link className="linkTag" to="/Product">Product</Link>
+            <button onClick={()=>this.navigate('/Product')}> Product</button>
          </li>
          <li>
-            <Link className="linkTag" to="/ContactUs">Contact </Link>
+            <button onClick={()=>this.navigate('/ContactUs')}> Contact Us</button>
          </li>
         </ul>
       </div>
