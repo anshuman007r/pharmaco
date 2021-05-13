@@ -1,20 +1,24 @@
 import React, { Component } from 'react'
+import { setToken, getToken } from '../util/auth'
 
 export default class Login extends Component {
+
+    loginUser = () =>{
+        console.log('hello world')
+        setToken('#ABCD$#')
+        console.log(getToken())
+        this.props.history.push('/')
+    }
+
     render() {
         console.log(this.props)
-        // const style={
-        //     backgroundColor : this.props.location.state.backgroundColor,
-        //     textAlign : 'center'
-        // }
         return (
             <div style={{
-                backgroundColor : this.props.location.state.backgroundColor,
                 textAlign : 'center',
                 height : '1000vh'
             }}>
                 Hello
-                <button onClick={()=>this.props.history.goBack()}>go back to Home page</button>
+                <button onClick={this.loginUser}>Login</button>
             </div>
         )
     }

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import  Home  from './Home'
 import ContactUs from './ContactUs'
 import AboutUs from './AboutUs'
 import Product from './Product'
 import Login from './Login'
+import ProtectiveRoute from './ProtectiveRoute'
+import AuthenticateRoute from './AuthenticateRoute'
 
-export default class Navigation extends Component {
+class Navigation extends Component {
     render() {
         return (
             <div>
@@ -14,10 +16,10 @@ export default class Navigation extends Component {
                     <Switch>
                         {/* <Route path='/AboutUs' component={AboutUs} /> */}
                         <Route exact path='/' component={Home} />
-                        <Route path='/AboutUs' component={AboutUs} />
-                        <Route path='/Product' component={Product} />
+                        <ProtectiveRoute path='/AboutUs' component={AboutUs} />
+                        <ProtectiveRoute path='/Product' component={Product} />
                         <Route path='/ContactUs' component={ContactUs } />
-                        <Route path='/Login' component={Login} />
+                        <AuthenticateRoute path='/Login' component={Login} />
                     </Switch>
                 </Router>
             </div>
@@ -25,3 +27,6 @@ export default class Navigation extends Component {
         )
     }
 }
+
+
+export default Navigation
